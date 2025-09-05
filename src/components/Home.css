@@ -1,0 +1,379 @@
+/* Home Component Styles */
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hero Section */
+.hero-section {
+  margin-bottom: 40px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  background: linear-gradient(45deg, #00d4ff, #0099cc, #00ffff, #ff6b6b);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Menu Card */
+.menu-card {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.menu-card h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #00d4ff;
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #ff6b6b;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Selection Groups */
+.selection-group {
+  margin-bottom: 30px;
+}
+
+.selection-group h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #00ffff;
+  text-align: center;
+}
+
+/* Difficulty Grid */
+.difficulty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.difficulty-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  color: white;
+  font-family: 'Space Mono', monospace;
+}
+
+.difficulty-btn:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.difficulty-btn.active {
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.difficulty-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.difficulty-desc {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  line-height: 1.4;
+}
+
+/* Category Select */
+.category-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-select:hover,
+.category-select:focus {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.1);
+  outline: none;
+}
+
+.category-select option {
+  background: #1a1a2e;
+  color: white;
+  padding: 10px;
+}
+
+/* Start Section */
+.start-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-start {
+  font-size: 1.3rem;
+  padding: 18px 40px;
+  min-width: 250px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-start:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Scores Section */
+.scores-section {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.high-scores-card {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.high-scores-card h3 {
+  text-align: center;
+  color: #ffd43b;
+  margin-bottom: 20px;
+}
+
+.no-scores {
+  text-align: center;
+  color: #b0b0b0;
+  font-style: italic;
+  padding: 20px;
+}
+
+.scores-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.score-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 212, 59, 0.3);
+  transform: translateX(5px);
+}
+
+.score-rank {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.score-details {
+  flex: 1;
+}
+
+.score-percentage {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00d4ff;
+  margin-bottom: 5px;
+}
+
+.score-info {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  text-transform: capitalize;
+}
+
+/* Instructions Card */
+.instructions-card {
+  text-align: left;
+}
+
+.instructions-card h3 {
+  text-align: center;
+  color: #51cf66;
+  margin-bottom: 20px;
+}
+
+.instructions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.instructions-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+.instructions-list li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .difficulty-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .difficulty-btn {
+    padding: 15px;
+  }
+  
+  .btn-start {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    min-width: 200px;
+  }
+  
+  .score-item {
+    padding: 12px;
+  }
+  
+  .score-rank {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    min-width: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: 10px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .menu-card,
+  .high-scores-card,
+  .instructions-card {
+    padding: 15px;
+  }
+  
+  .difficulty-btn {
+    padding: 12px;
+  }
+  
+  .difficulty-name {
+    font-size: 1rem;
+  }
+  
+  .difficulty-desc {
+    font-size: 0.8rem;
+  }
+}
+
+/* Accessibility Enhancements */
+.difficulty-btn:focus,
+.category-select:focus,
+.btn:focus {
+  outline: 2px solid #00d4ff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .difficulty-btn {
+    border-width: 3px;
+  }
+  
+  .difficulty-btn.active {
+    background: rgba(0, 212, 255, 0.5);
+  }
+  
+  .score-item {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title {
+    animation: none;
+    background: #00d4ff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .difficulty-btn:hover,
+  .score-item:hover {
+    transform: none;
+  }
+}

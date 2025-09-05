@@ -1,0 +1,164 @@
+/* Timer Component Styles */
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.timer-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00d4ff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timer-display {
+  position: relative;
+}
+
+.timer-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.timer-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-progress {
+  stroke: #00d4ff;
+  transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
+}
+
+.timer-container.warning .timer-progress {
+  stroke: #ffd43b;
+}
+
+.timer-container.critical .timer-progress {
+  stroke: #ff6b6b;
+  animation: pulse-stroke 0.5s infinite alternate;
+}
+
+@keyframes pulse-stroke {
+  from { stroke-width: 8; }
+  to { stroke-width: 12; }
+}
+
+.timer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.timer-time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Orbitron', monospace;
+  margin-bottom: 5px;
+}
+
+.timer-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.timer-container.warning .timer-time {
+  color: #ffd43b;
+}
+
+.timer-container.critical .timer-time {
+  color: #ff6b6b;
+  animation: pulse-text 0.5s infinite alternate;
+}
+
+@keyframes pulse-text {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.timer-inactive {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  font-style: italic;
+}
+
+/* Warning and Critical States */
+.timer-container.warning {
+  animation: shake 0.5s ease-in-out;
+}
+
+.timer-container.critical {
+  animation: shake 0.2s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timer-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .timer-time {
+    font-size: 1.2rem;
+  }
+  
+  .timer-status {
+    font-size: 0.6rem;
+  }
+  
+  .timer-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .timer-time {
+    font-size: 1rem;
+  }
+  
+  .timer-status {
+    font-size: 0.5rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .timer-progress {
+    transition: none;
+  }
+  
+  .timer-container.warning,
+  .timer-container.critical {
+    animation: none;
+  }
+  
+  .timer-container.critical .timer-progress,
+  .timer-container.critical .timer-time {
+    animation: none;
+  }
+}

@@ -1,0 +1,339 @@
+/* Progress Bar Component Styles */
+.progress-bar-container {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-info {
+  margin-bottom: 15px;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.current-question,
+.current-score,
+.completion-rate {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  white-space: nowrap;
+}
+
+.completion-rate {
+  color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+  border-color: rgba(81, 207, 102, 0.3);
+}
+
+/* Performance Stats */
+.performance-stats {
+  margin-top: 10px;
+}
+
+.accuracy-meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accuracy-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffd43b;
+  min-width: 80px;
+}
+
+.accuracy-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.accuracy-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b, #ffd43b, #51cf66);
+  border-radius: 4px;
+  transition: width 0.8s ease;
+  position: relative;
+}
+
+.accuracy-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.accuracy-percentage {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  min-width: 40px;
+  text-align: right;
+}
+
+.progress-track {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  height: 20px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #0099cc, #00ffff);
+  border-radius: 25px;
+  transition: width 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.progress-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.progress-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.progress-marker.completed {
+  color: #51cf66;
+  text-shadow: 0 0 5px rgba(81, 207, 102, 0.8);
+}
+
+.progress-marker.correct {
+  color: #51cf66;
+  text-shadow: 0 0 8px rgba(81, 207, 102, 1);
+  animation: correctPulse 0.5s ease-out;
+}
+
+.progress-marker.incorrect {
+  color: #ff6b6b;
+  text-shadow: 0 0 8px rgba(255, 107, 107, 1);
+  animation: incorrectShake 0.5s ease-out;
+}
+
+.progress-marker.skipped {
+  color: #ffd43b;
+  text-shadow: 0 0 5px rgba(255, 212, 59, 0.8);
+  animation: skipBounce 0.5s ease-out;
+}
+
+.progress-marker.current {
+  color: #ffd43b;
+  text-shadow: 0 0 5px rgba(255, 212, 59, 0.8);
+  animation: pulse 1.5s infinite;
+}
+
+.progress-marker.upcoming {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes correctPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes incorrectShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+@keyframes skipBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .progress-bar-container {
+    padding: 15px;
+  }
+  
+  .progress-stats {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .current-question,
+  .current-score {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  
+  .progress-labels {
+    font-size: 0.8rem;
+  }
+  
+  .progress-marker {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-bar-container {
+    padding: 12px;
+  }
+  
+  .progress-track {
+    height: 15px;
+  }
+  
+  .progress-labels {
+    font-size: 0.7rem;
+  }
+}
+
+/* Completion Summary */
+.completion-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(81, 207, 102, 0.1);
+  border: 1px solid rgba(81, 207, 102, 0.3);
+  border-radius: 10px;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.final-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: 'Orbitron', monospace;
+  margin-bottom: 5px;
+}
+
+.stat-item:nth-child(1) .stat-value {
+  color: #51cf66;
+  text-shadow: 0 0 10px rgba(81, 207, 102, 0.5);
+}
+
+.stat-item:nth-child(2) .stat-value {
+  color: #ff6b6b;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.stat-item:nth-child(3) .stat-value {
+  color: #ffd43b;
+  text-shadow: 0 0 10px rgba(255, 212, 59, 0.5);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #b0b0b0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .progress-shimmer,
+  .accuracy-fill::after {
+    animation: none;
+  }
+  
+  .progress-marker.current {
+    animation: none;
+  }
+  
+  .progress-marker.correct,
+  .progress-marker.incorrect,
+  .progress-marker.skipped {
+    animation: none;
+  }
+  
+  .progress-fill,
+  .accuracy-fill {
+    transition: none;
+  }
+  
+  .completion-summary {
+    animation: none;
+  }
+}
